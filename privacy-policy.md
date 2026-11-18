@@ -21,6 +21,7 @@ The app keeps its files in a folder under your Windows user profile: `%LOCALAPPD
 - **Your plan choice (tester builds only):** the StreamySpace Beta has a switch that lets testers pretend to be on the Free or the Premium plan. Which one you picked is saved in your settings file on your PC. Nothing is sent anywhere.
 - **Browser sign-ins:** one browser profile per platform (Twitch, YouTube, TikTok, Facebook, Kick) holding the cookies of the sites you sign in to. They are kept by the Microsoft Edge WebView2 runtime, in the same way a browser keeps them.
 - **Connected accounts:** if you connect a Twitch, Kick or YouTube account, the access tokens are stored protected by Windows data protection, so only your Windows account on this PC can read them.
+- **The last downloaded list of platform page selectors** (the folder `platform-selectors`): two small files, no personal data.
 - **An error log** (`logs\streamyspace.log`): technical errors only. It does not contain chat text, user names, channel names, links, cookies or tokens. A link is reduced to its site name, token-like text is removed, and your Windows user name is replaced.
 - **A diagnostics report:** created only when you press "Copy diagnostics". It goes to your clipboard and is shared only if you paste it somewhere. It lists the app and Windows versions, what each pane is doing, whether you are signed in and whether API accounts are connected, a few settings and the latest log lines. It contains no chat text, names, channel names, links or logins.
 
@@ -34,6 +35,7 @@ The app keeps its files in a folder under your Windows user profile: `%LOCALAPPD
     They are used to confirm which account is connected, to delete a message or time out, ban or unban a user **when you choose to**, to check whether a channel is live, and (Kick) to look up a channel's ID. These requests go from your PC to the platform. We do not receive your messages or moderation actions.
 - **Twitch chat connection.** For Twitch chat panes that are part of a Unified Chat group, the app also opens a direct, read-only connection from your PC to Twitch's chat server, the same kind of connection other chat readers use. It signs in anonymously with a random temporary nickname: no account, password or token is sent, and it cannot write or moderate. It sends only the Twitch channel names you are watching (so Twitch can send you that chat), and receives the public chat messages. It goes from your PC to Twitch under Twitch's own privacy policy; nothing goes to us. It is used so Unified Chat and Auto-Monitor read messages reliably; the pane's web page is still shown as before.
 - **Creator names.** To show a YouTube channel's name, the app asks YouTube for the public details of the video (by its public video ID).
+- **Platform fixes (optional).** Platforms sometimes change their pages. At start and every few hours, while **Check for platform fixes automatically** is ticked, the app downloads two small public files from the StreamySpace website (a list of page selectors and its digital signature; for now they are served by GitHub Pages from the public StreamySpace releases page). The app only uses a list whose signature checks out. It is two plain requests for public files: nothing about you, your PC, the app version or your channels is sent (as with any web request, the host that serves the files sees your network address). The same download also happens when you press **Check for fixes** on a pane that could not be set up.
 - **Downloads.** The installer is downloaded from GitHub, which sees the download request under its own privacy statement. The StreamySpace Beta is installed through the Microsoft Store, which handles the download, updates and its own records under [Microsoft's privacy statement](https://privacy.microsoft.com/privacystatement). We do not receive the Store's records about you.
 
 ## 3. What goes to our online service
@@ -53,7 +55,7 @@ The app has no analytics, no advertising and no crash-reporting service.
 - We do not collect or store chat messages, the names of chat participants, or your viewing or moderation history.
 - We do not sell your data.
 - We do not use AI services. Auto-Monitor runs on your PC and only highlights messages for you to review. It never bans, times out, hides or deletes anything.
-- We do not share data with anyone other than the platforms you use, Cloudflare (hosting) and GitHub (downloads), as described above.
+- We do not share data with anyone other than the platforms you use, Cloudflare (hosting) and GitHub (downloads and the platform-fix files), as described above.
 
 ## 5. Google and YouTube
 
@@ -65,6 +67,7 @@ We use YouTube access only to provide the moderation and live-status features yo
 
 - **Disconnect an account:** in the app, open **Connect accounts** and choose **Disconnect**. The token is removed from your PC and the platform is asked to cancel the authorization. You can also remove StreamySpace in the platform's own settings: Twitch (https://www.twitch.tv/settings/connections), Google (https://myaccount.google.com/permissions) and Kick (connected apps in your account settings).
 - **Stop live-status lookups:** untick **Warn when a channel is not live**.
+- **Stop checking for platform fixes:** untick **Check for platform fixes automatically** (nothing is then asked, except when you press **Check for fixes** yourself; a list already downloaded stays in use).
 - **Remove everything the app keeps:** uninstall StreamySpace, then delete its data folder (`%LOCALAPPDATA%\StreamySpace`, or `%LOCALAPPDATA%\StreamySpace.Beta` for the Beta) if it is still there.
 - **Our side:** because we do not hold personal data about you, there is nothing of yours for us to access, correct or delete. If you have a privacy question or request, email TannerLogan23@gmail.com.
 

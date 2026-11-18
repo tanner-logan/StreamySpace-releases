@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "version": 1,
+  "minAppVersion": "1.0.3",
+  "note": "The selectors StreamySpace's page scripts use to FIND things on the platforms' pages (the chat list, a message row, the player). A key holds one or more CSS selectors in priority order. Keys the page scripts use must exist here; a newer, signed copy of this file can replace the entries but never remove a key. Styling rules inside the scripts keep their own copy of a selector.",
+  "selectors": {
+    "twitch.player.root": [".video-player", "[data-a-target=\"video-player\"]"],
+    "twitch.player.controls": ["[data-a-target=\"player-controls\"]"],
+
+    "tiktok.root": ["#tiktok-live-main-container-id"],
+    "tiktok.player.container": ["[data-e2e=\"live-content-container\"]"],
+    "tiktok.player.controls": ["[data-e2e=\"control-bar-id-v2\"]", "[data-e2e=\"volume-icon\"]"],
+
+    "facebook.player.root": ["[aria-label=\"Video player\"]"],
+
+    "kick.player.known": ["#injected-channel-player"],
+    "kick.player.root": ["[id*=\"channel-player\"]"],
+
+    "tiktok.chat.liveRoom": [".live-room-container"],
+    "tiktok.chat.moreAction": ["[data-e2e=\"more-action-button\"]"],
+    "tiktok.chat.social": ["[data-e2e=\"social-message\"]"],
+    "tiktok.chat.message": ["[data-e2e=\"chat-message\"]"],
+    "tiktok.chat.popover": [".tux-popover-oNF64o"],
+    "tiktok.chat.inputField": ["[data-e2e=\"room-chat-input-field\"]"],
+    "tiktok.chat.inputBox": [".bg-UIShapeNeutral4"],
+    "tiktok.chat.inputContainer": ["[data-e2e=\"live-chat-input-container\"]"],
+    "tiktok.chat.list": [".overflow-y-scroll", "[data-e2e=\"live-chat-container\"]"],
+    "tiktok.chat.ownerName": ["[data-e2e=\"message-owner-name\"]"],
+    "tiktok.chat.body": [".break-words.align-middle"],
+
+    "facebook.chat.panel": ["[role=\"complementary\"]"],
+    "facebook.chat.comment": ["[aria-label^=\"Comment by\"]"],
+    "facebook.chat.composer": ["[aria-label^=\"Write a comment\"]"],
+    "facebook.chat.textbox": ["[role=\"textbox\"]"],
+    "facebook.chat.row": ["[role=\"article\"][aria-label^=\"Comment by\"]"],
+    "facebook.chat.author": ["a[role=\"link\"][aria-hidden=\"false\"] [dir=\"auto\"]"],
+    "facebook.chat.body": ["span[lang] [dir=\"auto\"]"],
+    "facebook.chat.commentLink": ["a[href*=\"comment_id=\"]"],
+
+    "kick.chat.userCard": ["#user-identity"],
+    "kick.chat.list": ["#chatroom-messages"],
+    "kick.chat.row": ["#chatroom-messages [data-index]"],
+    "kick.chat.name": ["button.font-bold[title]"],
+    "kick.chat.body": ["[class*=\"leading-[1.55]\"]"],
+
+    "twitch.chat.row": [".chat-line__message[data-a-target=\"chat-line-message\"]"],
+    "twitch.chat.list": ["[data-test-selector=\"chat-scrollable-area__message-container\"]", "[role=\"log\"]"],
+    "twitch.chat.body": ["[data-a-target=\"chat-line-message-body\"]"],
+
+    "youtube.chat.row": ["yt-live-chat-text-message-renderer"],
+    "youtube.chat.message": ["#message"],
+    "youtube.chat.author": ["#author-name"],
+    "youtube.chat.dropdown": ["tp-yt-iron-dropdown"],
+    "youtube.chat.listbox": ["tp-yt-paper-listbox"],
+
+    "twitch.composer.input": ["[data-a-target=\"chat-input\"]"],
+    "twitch.composer.button": ["[data-a-target=\"chat-send-button\"]"],
+    "youtube.composer.input": ["yt-live-chat-text-input-field-renderer #input[contenteditable]", "#input[contenteditable]"],
+    "youtube.composer.button": ["yt-live-chat-message-input-renderer #send-button button", "#send-button button"],
+    "kick.composer.input": ["[data-testid=\"chat-input\"]", "#chatroom-footer [contenteditable=\"true\"]", "[data-lexical-editor=\"true\"]"],
+    "kick.composer.button": ["#send-message-button", "#chatroom-footer button[type=\"submit\"]"],
+    "tiktok.composer.input": ["[data-e2e=\"comment-input\"] [contenteditable]", "[contenteditable=\"plaintext-only\"]", "[contenteditable=\"true\"]"],
+    "facebook.composer.input": ["[contenteditable=\"true\"][aria-label^=\"Write a comment\"]", "[contenteditable=\"true\"][role=\"textbox\"]"],
+
+    "twitch.chat.opener": ["[data-a-target=\"chat-message-username\"]"],
+    "youtube.chat.opener": ["#menu-button"],
+    "facebook.chat.opener": ["[aria-label=\"Hide or report this\"]"]
+  },
+  "expect": {
+    "TwitchPlayer": ["twitch.player.root"],
+    "TikTokPlayer": ["tiktok.root", "tiktok.player.container", "tiktok.player.controls"],
+    "FacebookPlayer": ["facebook.player.root"],
+    "KickPlayer": ["kick.player.root"],
+    "TikTokChat": ["tiktok.root", "tiktok.chat.liveRoom"],
+    "FacebookChat": ["facebook.chat.comment", "facebook.chat.composer"],
+    "KickChat": ["kick.chat.list"]
+  }
+}
