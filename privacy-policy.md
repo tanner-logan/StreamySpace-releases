@@ -9,14 +9,14 @@
 - StreamySpace is a Windows app that runs on your PC. Your workspaces, settings, sign-ins and connected accounts stay on your PC.
 - There are no StreamySpace user accounts. We do not collect your name, your email, the chat messages you moderate, or your viewing or moderation history.
 - Chat text is never sent to us. Auto-Monitor runs on your PC and uses no AI service.
-- Two small things do reach our online service: a sign-in helper for Kick and Google, and, when no account is connected and "Warn when a channel is not live" is on, the platform and channel name (or YouTube video ID) of a pane. Sections 3 and 6 explain both and how to switch them off.
+- Two small things do reach our online service: a sign-in helper for Kick and Google, and, when no account is connected, the platform and channel name (or YouTube video ID) of a pane. Sections 3 and 6 explain both.
 - You can disconnect accounts, switch features off and delete everything the app keeps (section 6).
 
 ## 1. What stays on your PC
 
 The app keeps its files in a folder under your Windows user profile: `%LOCALAPPDATA%\StreamySpace` (the StreamySpace Beta tester build uses a separate folder, `StreamySpace.Beta`, so it never shares data with the regular app). We have no access to them.
 
-- **Settings and workspaces:** your panes (the channel links or names you typed), layouts and preferences.
+- **Settings and workspaces:** your panes (the channel links or names you typed), layouts and preferences. StreamySpace also reads your own display name from each platform's page, in memory only, so it can shade replies and @mentions aimed at you in the feed; it is not saved or sent anywhere.
 - **Your Auto-Monitor rules:** the phrases you add.
 - **Your plan choice (tester builds only):** the StreamySpace Beta has a switch that lets testers pretend to be on the Free or the Premium plan. Which one you picked is saved in your settings file on your PC. Nothing is sent anywhere.
 - **Browser sign-ins:** one browser profile per platform (Twitch, YouTube, TikTok, Facebook, Kick) holding the cookies of the sites you sign in to. They are kept by the Microsoft Edge WebView2 runtime, in the same way a browser keeps them.
@@ -35,7 +35,7 @@ The app keeps its files in a folder under your Windows user profile: `%LOCALAPPD
     They are used to confirm which account is connected, to delete a message or time out, ban or unban a user **when you choose to**, to check whether a channel is live, and (Kick) to look up a channel's ID. These requests go from your PC to the platform. We do not receive your messages or moderation actions.
 - **Twitch chat connection.** For Twitch chat panes that are part of a Unified Chat group, the app also opens a direct, read-only connection from your PC to Twitch's chat server, the same kind of connection other chat readers use. It signs in anonymously with a random temporary nickname: no account, password or token is sent, and it cannot write or moderate. It sends only the Twitch channel names you are watching (so Twitch can send you that chat), and receives the public chat messages. It goes from your PC to Twitch under Twitch's own privacy policy; nothing goes to us. It is used so Unified Chat and Auto-Monitor read messages reliably; the pane's web page is still shown as before.
 - **Creator names.** To show a YouTube channel's name, the app asks YouTube for the public details of the video (by its public video ID).
-- **Platform fixes (optional).** Platforms sometimes change their pages. At start and every few hours, while **Check for platform fixes automatically** is ticked, the app downloads two small public files from the StreamySpace website (a list of page selectors and its digital signature; for now they are served by GitHub Pages from the public StreamySpace releases page). The app only uses a list whose signature checks out. It is two plain requests for public files: nothing about you, your PC, the app version or your channels is sent (as with any web request, the host that serves the files sees your network address). The same download also happens when you press **Check for fixes** on a pane that could not be set up.
+- **Platform fixes.** Platforms sometimes change their pages. At start and every few hours the app downloads two small public files from the StreamySpace website (a list of page selectors and its digital signature; for now they are served by GitHub Pages from the public StreamySpace releases page). The app only uses a list whose signature checks out. It is two plain requests for public files: nothing about you, your PC, the app version or your channels is sent (as with any web request, the host that serves the files sees your network address). The same download also happens when you press **Check for fixes** on a pane that could not be set up.
 - **Downloads.** The installer is downloaded from GitHub, which sees the download request under its own privacy statement. The StreamySpace Beta is installed through the Microsoft Store, which handles the download, updates and its own records under [Microsoft's privacy statement](https://privacy.microsoft.com/privacystatement). We do not receive the Store's records about you.
 
 ## 3. What goes to our online service
@@ -44,9 +44,9 @@ We run a small online service on Cloudflare (`streamyspace-kick-token.streamyspa
 
 **a) Sign-in help for Kick and Google (YouTube).** Kick and Google require a secret to complete sign-in. We keep it on our server instead of inside the app, where anyone could extract it. When you connect one of those accounts, or when its connection is renewed, the one-time sign-in code or renewal token passes through our service to Kick or Google, and the answer comes back to your PC. Our service does not store or log them. Twitch sign-in does not use our service.
 
-**b) "Is this channel live?"** When "Warn when a channel is not live" is on, and you have not connected that platform's account, the app asks our service whether a channel is live. It sends only the **platform and the channel name** (a Twitch or Kick channel name) **or the YouTube video ID**, never a link and never anything about you. Our service asks the platform using our own credentials and answers. Answers are kept for a short time and shared, and are not tied to you. We do not store who asked. The network address of a request is used only briefly, in memory, to limit abuse, and is not stored by us. Cloudflare, our hosting provider, processes the requests technically and may keep its own records under its own policy ([Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/)).
+**b) "Is this channel live?"** When you have not connected that platform's account, the app asks our service whether a channel is live. It sends only the **platform and the channel name** (a Twitch or Kick channel name) **or the YouTube video ID**, never a link and never anything about you. Our service asks the platform using our own credentials and answers. Answers are kept for a short time and shared, and are not tied to you. We do not store who asked. The network address of a request is used only briefly, in memory, to limit abuse, and is not stored by us. Cloudflare, our hosting provider, processes the requests technically and may keep its own records under its own policy ([Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/)).
 
-If you would rather not use it, untick **Warn when a channel is not live** (nothing is then asked, and those warnings are not shown), or connect your account so the platform is asked directly.
+If you would rather not use it, connect your account (Twitch, Kick or YouTube) so the platform is asked directly.
 
 The app has no analytics, no advertising and no crash-reporting service.
 
@@ -66,8 +66,6 @@ We use YouTube access only to provide the moderation and live-status features yo
 ## 6. Your choices and deleting your data
 
 - **Disconnect an account:** in the app, open **Connect accounts** and choose **Disconnect**. The token is removed from your PC and the platform is asked to cancel the authorization. You can also remove StreamySpace in the platform's own settings: Twitch (https://www.twitch.tv/settings/connections), Google (https://myaccount.google.com/permissions) and Kick (connected apps in your account settings).
-- **Stop live-status lookups:** untick **Warn when a channel is not live**.
-- **Stop checking for platform fixes:** untick **Check for platform fixes automatically** (nothing is then asked, except when you press **Check for fixes** yourself; a list already downloaded stays in use).
 - **Remove everything the app keeps:** uninstall StreamySpace, then delete its data folder (`%LOCALAPPDATA%\StreamySpace`, or `%LOCALAPPDATA%\StreamySpace.Beta` for the Beta) if it is still there.
 - **Our side:** because we do not hold personal data about you, there is nothing of yours for us to access, correct or delete. If you have a privacy question or request, email TannerLogan23@gmail.com.
 

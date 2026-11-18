@@ -44,6 +44,8 @@ Combine two or more chats into one feed, in the order messages arrive.
 - **Send to** lets you reply from the feed. Pick the platform (or the channel, when you have several) and type. The box border and placeholder show where your message will go, and nothing is ever sent to more than one platform. It uses your signed-in chat on that platform, so its own rules apply.
 - Click a platform button above the feed to bring that platform's original chat to the front. The send box is greyed out while you do, so you can't send to the wrong place. Click **Unified** to return.
 - The **⋯** on a message opens that platform's moderation options for it. Users you have timed out or banned from the feed are marked.
+- A Kick or Facebook reply shows a small "↪ replying to <name>" line above it (Facebook: English pages).
+- A message that replies to you or @mentions you is shaded green. StreamySpace finds your name from your sign-in on each platform by itself; if it cannot, nothing is shaded.
 
 ## Auto-Monitor
 
@@ -65,6 +67,7 @@ Under **API accounts** you can connect your Twitch, Kick or YouTube account thro
 - TikTok chat can hide follow, share, gift and Fan Club join messages, per pane.
 - Facebook Live streams start muted when Facebook leaves them paused.
 - StreamySpace checks that you are signed in for every platform you use. It cannot see whether you are a moderator, so confirm that on the platform.
-- Platform websites change without notice. If a pane stops looking right, press **Reload all** or update StreamySpace.
+- Platform websites change without notice. If StreamySpace cannot set a pane up, the pane shows an amber notice with a **Check for fixes** button, and press **Reload all** if a pane stops looking right. StreamySpace also downloads a small signed list of page fixes from this site by itself, so many fixes arrive without a new version (nothing about you is sent).
+- A **⚠** in a pane's header also means the channel may not be live. It goes away by itself once it is. Without a connected account, the platform and channel name (or YouTube video ID) are sent to StreamySpace's online service to find that out; see the privacy policy.
 - Your data stays on this PC in `%LOCALAPPDATA%\StreamySpace`: settings, workspaces, custom rules and one separate browser profile per platform for your sign-ins. Deleting that folder resets the app.
 - Coming from ModView? Your workspaces, rules and sign-ins move over automatically on first launch.
