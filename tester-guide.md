@@ -73,19 +73,19 @@ In the moderation view:
 
 You don't need to do all of these. Do what fits how you normally moderate, and tell me what felt confusing or broken.
 
-- [ ] Add a livestream and a chat on each platform you use, then open the moderation view
-- [ ] Make a workspace with four livestreams and four chats, and check that it stays usable on your screen
-- [ ] Resize the window and try **Full screen**. Do the panes rearrange sensibly?
-- [ ] Drag a pane's title onto another pane to swap or move it. Is the drop highlight clear?
-- [ ] Press **Save layout**, close the app, reopen it and check that everything comes back
-- [ ] Create a second workspace, then rename, duplicate, export and import one
-- [ ] Set up **Unified Chat** with two or more chats and read the combined feed
-- [ ] Try a moderation action (timeout, ban or delete) from Unified Chat, on a channel where you really are a moderator. You can use your own channel if you'd like for testing purposes
-- [ ] Try the **Auto-Monitor** rules and see whether the highlights are useful or noisy
-- [ ] Open the Chat Identity menu (the button next to the message box) and try a few themes
-- [ ] Add a TikTok For You pane to a livestream slot
-- [ ] Use StreamySpace for a real stretch of moderating (30 minutes or more) and note anything that annoys you
-- [ ] Leave it running for a while and see whether it slows down or a pane stops updating
+- Add a livestream and a chat on each platform you use, then open the moderation view
+- Make a workspace with four livestreams and four chats, and check that it stays usable on your screen
+- Resize the window and try **Full screen**. Do the panes rearrange sensibly?
+- Drag a pane's title onto another pane to swap or move it. Is the drop highlight clear?
+- Press **Save layout**, close the app, reopen it and check that everything comes back
+- Create a second workspace, then rename, duplicate, export and import one
+- Set up **Unified Chat** with two or more chats and read the combined feed
+- Try a moderation action (timeout, ban or delete) from Unified Chat, on a channel where you really are a moderator. You can use your own channel if you'd like for testing purposes
+- Try the **Auto-Monitor** rules and see whether the highlights are useful or noisy
+- Open the Chat Identity menu (the button next to the message box) and try a few themes
+- Add a TikTok For You pane to a livestream slot
+- Use StreamySpace for a real stretch of moderating (30 minutes or more) and note anything that annoys you
+- Leave it running for a while and see whether it slows down or a pane stops updating
 
 ## Free vs Premium
 
